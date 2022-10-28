@@ -5,6 +5,14 @@ WORKSPACE=/opt/ServerStatus
 mkdir -p ${WORKSPACE}
 cd ${WORKSPACE}
 
+yum install -y sqlite-devel
+
+apt-get install libsqlite3-dev
+
+yum -y install gcc gcc-c++
+
+apt install 'g++'
+
 wget https://humdi.net/vnstat/vnstat-latest.tar.gz
 tar zxvf vnstat-latest.tar.gz
 cd vnstat-*
