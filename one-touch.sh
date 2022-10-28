@@ -7,11 +7,11 @@ cd ${WORKSPACE}
 
 yum install -y sqlite-devel
 
-apt-get install libsqlite3-dev
+# apt-get install libsqlite3-dev
 
 yum -y install gcc gcc-c++
 
-apt install 'g++'
+# apt install 'g++'
 
 wget https://humdi.net/vnstat/vnstat-latest.tar.gz
 tar zxvf vnstat-latest.tar.gz
@@ -25,9 +25,9 @@ systemctl start vnstat
 #初始化文件
 
 # Debian
-cp -v examples/init.d/debian/vnstat /etc/init.d/
-update-rc.d vnstat defaults
-service vnstat start
+# cp -v examples/init.d/debian/vnstat /etc/init.d/
+# update-rc.d vnstat defaults
+# service vnstat start
 
 # 红帽/CentOS
 cp -v examples/init.d/redhat/vnstat /etc/init.d/
