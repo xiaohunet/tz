@@ -7,16 +7,24 @@ cd ${WORKSPACE}
 
 yum install -y sqlite-devel
 
-# apt-get install libsqlite3-dev
+### apt-get install libsqlite3-dev
+#apt-get install -y libsqlite3-dev
 
 yum -y install gcc gcc-c++
+yum -y install wget
+yum -y install curl
 
 # apt install 'g++'
 
+# sudo apt-get install build-essential
+
+# apt-get install wget
 wget https://humdi.net/vnstat/vnstat-latest.tar.gz
 tar zxvf vnstat-latest.tar.gz
 cd vnstat-*
+# cd vnstat-2.10
 ./configure --prefix=/usr --sysconfdir=/etc && make && make install
+# ./configure --prefix=/usr/local --sysconfdir=/etc && make && make install
 vnstatd -d
 cp -v examples/systemd/vnstat.service /etc/systemd/system/
 systemctl enable vnstat
@@ -42,6 +50,7 @@ latest_version=$(curl -m 10 -sL "https://api.github.com/repos/zdz/ServerStatus-R
 wget --no-check-certificate -qO "server-${OS_ARCH}-unknown-linux-musl.zip"  "https://github.com/zdz/ServerStatus-Rust/releases/download/${latest_version}/server-${OS_ARCH}-unknown-linux-musl.zip"
 wget --no-check-certificate -qO "client-${OS_ARCH}-unknown-linux-musl.zip"  "https://github.com/zdz/ServerStatus-Rust/releases/download/${latest_version}/client-${OS_ARCH}-unknown-linux-musl.zip"
 
+# apt-get install unzip
 unzip -o "server-${OS_ARCH}-unknown-linux-musl.zip"
 unzip -o "client-${OS_ARCH}-unknown-linux-musl.zip"
 
