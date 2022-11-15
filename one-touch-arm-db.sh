@@ -45,7 +45,7 @@ service vnstat start
 
 cd ${WORKSPACE}
 # 下载, arm 机器替换 x86_64 为 aarch64
-OS_ARCH="x86_64"
+OS_ARCH="aarch64"
 latest_version=$(curl -m 10 -sL "https://api.github.com/repos/zdz/ServerStatus-Rust/releases/latest" | grep "tag_name" | head -n 1 | awk -F ":" '{print $2}' | sed 's/\"//g;s/,//g;s/ //g')
 
 wget --no-check-certificate -qO "server-${OS_ARCH}-unknown-linux-musl.zip"  "https://github.com/zdz/ServerStatus-Rust/releases/download/${latest_version}/server-${OS_ARCH}-unknown-linux-musl.zip"
